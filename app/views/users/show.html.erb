@@ -2,6 +2,6 @@
 
 <div>
   <% @events.each do |event| %>
-   <%= link_to event.title, event_path(event) %>
+   <%= link_to event.title, event_path(event), style: "display: block" %>
   <% end %>
 </div>
