@@ -3,5 +3,5 @@ class Event < ApplicationRecord
   has_many :rsvps, foreign_key: :attended_event_id
   has_many :attendees, through: :rsvps
 
-  validates :title, presence: true
+  validates :title, :date_time, presence: true
 end
