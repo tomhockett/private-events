@@ -1,3 +1,13 @@
 <h1><%= @event.title.titleize %></h1>
 <h3><%= @event.date_time.strftime("%B %-d, %Y at %l:%M %p") %></h3>
+<%= link_to "Attend Event", rsvp_create_path(event_id: @event.id) %>
 <%= link_to "All Events", root_path %>
+
+<h3>Attendees:</h3>
+<% if @event.attendees.any? %>
+  <% @event.attendees.each do |attn| %>
+    <%= link_to attn.email, user_path(attn) %>
+  <% end %>
+<% else %>
+  <div>This event has no attendees.</div>
+<% end %>

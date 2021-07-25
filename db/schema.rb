@@ -44,6 +44,6 @@ ActiveRecord::Schema.define(version: 2021_07_24_201758) do
   end
 
   add_foreign_key "events", "users"
-  add_foreign_key "rsvps", "attended_events"
-  add_foreign_key "rsvps", "attendees"
+  add_foreign_key "rsvps", "events", column: "attended_event_id"
+  add_foreign_key "rsvps", "users", column: "attendee_id"
 end
